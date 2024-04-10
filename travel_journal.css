@@ -27,10 +27,39 @@ section {
     height: 845px;
 }
 
-.florida {
+marker {
     width: 30px;
     height: 50px;
     position: absolute;
+}
+
+.florida, .mississippi, .dc, .disney, .spacecenter {
+    width: 30px;
+    height: 50px;
+    position: absolute;
+}
+
+.florida {
     top: 739px;
     left: 976px;
+}
+
+.mississippi {
+    top: 604px;
+    left: 832px;
+}
+
+.dc {
+    top: 444px;
+    left: 1127px;
+}
+
+.spacecenter {
+    top: 599px;
+    left: 910px;
+}
+
+.disney {
+    top: 767px;
+    left: 1059px; 
 }
