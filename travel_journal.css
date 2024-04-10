@@ -1,0 +1,36 @@
+html {
+    font-family: Georgia, Times, serif;
+    background-color: burlywood;
+}
+
+header {
+    background-color: antiquewhite;
+    border: black solid 2px;
+    padding-left: 10px;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: 3fr 2fr 1fr;
+    background-color: antiquewhite;
+    border: black solid 2px;
+    padding-left: 10px;  
+}
+
+section {
+    background-image: url(map.jpg);
+    background-size: cover;
+    border: black solid 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 1305px;
+    height: 845px;
+}
+
+.florida {
+    width: 30px;
+    height: 50px;
+    position: absolute;
+    top: 739px;
+    left: 976px;
+}
