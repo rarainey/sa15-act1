@@ -31,6 +31,8 @@ section {
     background-color: rgb(255, 255, 255);
     border: black solid 2px;
     position: absolute;
+    width: 250px;
+    padding-left: 10px;
 }
 
 .florida, .mississippi, .dc, .disney, .spacecenter {
