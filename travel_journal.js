@@ -2,7 +2,9 @@ const data = {"florida": ["St. George Island, Florida", "I biennially visit St. 
               "mississippi": ["Southaven, Mississippi", "I live in DeSoto County, MS. Biased, but I quite like it here."],
               "dc": ["Washington D.C.", "I took a trip to D.C. one year in school. I do not get to see such cities and architecture often around here."],
               "spacecenter": ["U.S. Space and Rocket Center", "I went to the space center on a class trip once. One of the coolest muesuems/places I've been to."],
-              "disney": ["Disney World", "I went to Disney World one Spring Break. Crowded but fun."]}
+              "disney": ["Disney World", "I went to Disney World one Spring Break. Crowded but fun."]};
+
+var activePopup = null;
 
 function details(location) {
     const entry = document.getElementById(location);
@@ -21,8 +23,13 @@ function details(location) {
     popupDiv.appendChild(popupTitle);
 
     let popupBody = document.createElement('p'); 
-    popupBody.innerText = data[location][1]
-    popupDiv.appendChild(popupBody)
+    popupBody.innerText = data[location][1];
+    popupDiv.appendChild(popupBody);
 
-    entry.parentNode.appendChild(popupDiv);
+    if (activePopup != null) {
+        activePopup.remove()
+    }
+    activePopup = popupDiv
+    
+    entry.parentNode.parentNode.appendChild(popupDiv);
 }
