@@ -7,6 +7,13 @@ const data = {"florida": ["St. George Island, Florida", "I biennially visit St. 
 var activePopup = null;
 const xyRegex = /\d+\.\d+/
 
+function getMarkerPosition(entry) {
+    const entryStyle = getComputedStyle(entry);
+    const y = entryStyle.top;
+    const x = entryStyle.left.match(xyRegex)[0];    /* To strip "px" from string */
+    return [String(Number(x) - 175) + "px", y];     /* Subtract 175 to shift popup left */
+}
+
 /* Function clears popup (on map click) */
 function clearPopup() {
     if (activePopup != null) {
@@ -17,16 +24,17 @@ function clearPopup() {
 
 function details(location) {
     const entry = document.getElementById(location);
-    const entryStyle = getComputedStyle(entry);
-    const y = entryStyle.top;
-    const x = entryStyle.left.match(xyRegex)[0];    /* To strip "px" from string */
 
     /* Defining New Div */
     let popupDiv = document.createElement('div');
     popupDiv.id = `${location}popup`;
     popupDiv.className = "popup";
+
+    const entryPos = getMarkerPosition(entry)
+    const x = entryPos[0]
+    const y = entryPos[1]
     popupDiv.style.top = y;
-    popupDiv.style.left = String(Number(x) - 175) + "px";
+    popupDiv.style.left = x;
 
     /* Add Image to Popup */
     let popupImg = document.createElement('img')
@@ -51,12 +59,12 @@ function details(location) {
 
     /* Add window resize listener so that popup boxes track position */
     window.addEventListener("resize", () => {
-        const entryStyle = getComputedStyle(entry);
-        const y = entryStyle.top;
-        const x = entryStyle.left.match(xyRegex)[0];    /* To strip "px" from string */
+        const entryPos = getMarkerPosition(entry)
+        const x = entryPos[0]
+        const y = entryPos[1]
 
         popupDiv.style.top = y;
-        popupDiv.style.left = String(Number(x) - 175) + "px";
+        popupDiv.style.left = x;
     })
     
     entry.parentNode.parentNode.appendChild(popupDiv);
