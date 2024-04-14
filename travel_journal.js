@@ -1,8 +1,8 @@
-const data = {"florida": ["St. George Island, Florida", "I biennially visit St. George Island Florida during summer time. It has amazing beaches."],
-              "mississippi": ["Southaven, Mississippi", "I live in DeSoto County, MS. Biased, but I quite like it here."],
-              "dc": ["Washington D.C.", "I took a trip to D.C. one year in school. I do not get to see such cities and architecture often around here."],
-              "spacecenter": ["U.S. Space and Rocket Center", "I went to the space center on a class trip once. One of the coolest muesuems/places I've been to."],
-              "disney": ["Disney World", "I went to Disney World one Spring Break. Crowded but fun."]};
+const data = {"florida": ["St. George Island, Florida", "I biennially visit St. George Island Florida during summer time. It has amazing beaches.", "images/fl.jpg"],
+              "mississippi": ["Southaven, Mississippi", "I live in DeSoto County, MS. Biased, but I quite like it here.", "images/ms.jpg"],
+              "dc": ["Washington D.C.", "I took a trip to D.C. one year in school. I do not get to see such cities and architecture often around here.", "images/dc.jpg"],
+              "spacecenter": ["U.S. Space and Rocket Center", "I went to the space center on a class trip once. One of the coolest muesuems/places I've been to.", "images/spacecenter.jpg"],
+              "disney": ["Disney World", "I went to Disney World one Spring Break. Crowded but fun.", "images/disney.jpg" ]};
 
 var activePopup = null;
 
@@ -26,6 +26,11 @@ function details(location) {
     popupDiv.className = "popup";
     popupDiv.style.top = y;
     popupDiv.style.left = x;
+
+    /* Add Image to Popup */
+    let popupImg = document.createElement('img')
+    popupImg.src = data[location][2]
+    popupDiv.appendChild(popupImg)
 
     /* Add Title to Popup */
     let popupTitle = document.createElement('h3');

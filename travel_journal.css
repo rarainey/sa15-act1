@@ -33,8 +33,13 @@ section {
     border: black solid 2px;
     position: absolute;
     font-size: smaller;
-    max-width: 250px;
+    max-width: 175px;
     padding: 5px;
+
+    img {
+        max-width: 150px;
+        height: auto;
+    }
 }
 
 .florida, .mississippi, .dc, .disney, .spacecenter {
