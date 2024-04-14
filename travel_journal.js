@@ -6,6 +6,13 @@ const data = {"florida": ["St. George Island, Florida", "I biennially visit St. 
 
 var activePopup = null;
 
+function clearPopup() {
+    if (activePopup != null) {
+        activePopup.remove();
+        activePopup = null;
+    }
+}
+
 function details(location) {
     const entry = document.getElementById(location);
     const entryStyle = getComputedStyle(entry);
