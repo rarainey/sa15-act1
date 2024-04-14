@@ -5,7 +5,7 @@ const data = {"florida": ["St. George Island, Florida", "I biennially visit St. 
               "disney": ["Disney World", "I went to Disney World one Spring Break. Crowded but fun.", "images/disney.jpg" ]};
 
 var activePopup = null;
-const xyRegex = /\d+\.\d+/
+const xyRegex = /\d+\.\d+/;
 
 function getMarkerPosition(entry) {
     const entryStyle = getComputedStyle(entry);
@@ -30,16 +30,16 @@ function details(location) {
     popupDiv.id = `${location}popup`;
     popupDiv.className = "popup";
 
-    const entryPos = getMarkerPosition(entry)
-    const x = entryPos[0]
-    const y = entryPos[1]
+    const entryPos = getMarkerPosition(entry);
+    const x = entryPos[0];
+    const y = entryPos[1];
     popupDiv.style.top = y;
     popupDiv.style.left = x;
 
     /* Add Image to Popup */
-    let popupImg = document.createElement('img')
-    popupImg.src = data[location][2]
-    popupDiv.appendChild(popupImg)
+    let popupImg = document.createElement('img');
+    popupImg.src = data[location][2];
+    popupDiv.appendChild(popupImg);
 
     /* Add Title to Popup */
     let popupTitle = document.createElement('h3');
@@ -53,15 +53,15 @@ function details(location) {
 
     /* Get rid of / reinstate active popup*/
     if (activePopup != null) {
-        activePopup.remove()
+        activePopup.remove();
     }
     activePopup = popupDiv;
 
     /* Add window resize listener so that popup boxes track position */
     window.addEventListener("resize", () => {
-        const entryPos = getMarkerPosition(entry)
-        const x = entryPos[0]
-        const y = entryPos[1]
+        const entryPos = getMarkerPosition(entry);
+        const x = entryPos[0];
+        const y = entryPos[1];
 
         popupDiv.style.top = y;
         popupDiv.style.left = x;
