@@ -5,6 +5,7 @@ const data = {"florida": ["St. George Island, Florida", "I biennially visit St. 
               "disney": ["Disney World", "I went to Disney World one Spring Break. Crowded but fun.", "images/disney.jpg" ]};
 
 var activePopup = null;
+const xyRegex = /\d+\.\d+/
 
 /* Function clears popup (on map click) */
 function clearPopup() {
@@ -18,14 +19,14 @@ function details(location) {
     const entry = document.getElementById(location);
     const entryStyle = getComputedStyle(entry);
     const y = entryStyle.top;
-    const x = entryStyle.left;
+    const x = entryStyle.left.match(xyRegex)[0];    /* To strip "px" from string */
 
     /* Defining New Div */
     let popupDiv = document.createElement('div');
     popupDiv.id = `${location}popup`;
     popupDiv.className = "popup";
     popupDiv.style.top = y;
-    popupDiv.style.left = x;
+    popupDiv.style.left = String(Number(x) - 175) + "px";
 
     /* Add Image to Popup */
     let popupImg = document.createElement('img')
@@ -52,10 +53,10 @@ function details(location) {
     window.addEventListener("resize", () => {
         const entryStyle = getComputedStyle(entry);
         const y = entryStyle.top;
-        const x = entryStyle.left;
+        const x = entryStyle.left.match(xyRegex)[0];    /* To strip "px" from string */
 
         popupDiv.style.top = y;
-        popupDiv.style.left = x;
+        popupDiv.style.left = String(Number(x) - 175) + "px";
     })
     
     entry.parentNode.parentNode.appendChild(popupDiv);
