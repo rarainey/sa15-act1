@@ -44,6 +44,7 @@ section {
     position: absolute;
 }
 
+/* Percentages for dynamic change*/
 .florida {
     top: 76%;
     left: 74%

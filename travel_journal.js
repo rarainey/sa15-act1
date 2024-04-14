@@ -6,6 +6,7 @@ const data = {"florida": ["St. George Island, Florida", "I biennially visit St. 
 
 var activePopup = null;
 
+/* Function clears popup (on map click) */
 function clearPopup() {
     if (activePopup != null) {
         activePopup.remove();
