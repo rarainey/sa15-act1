@@ -12,24 +12,38 @@ function details(location) {
     const y = entryStyle.top;
     const x = entryStyle.left;
 
+    /* Defining New Div */
     let popupDiv = document.createElement('div');
-    popupDiv.id = `${location}popup`
+    popupDiv.id = `${location}popup`;
     popupDiv.className = "popup";
     popupDiv.style.top = y;
     popupDiv.style.left = x;
 
+    /* Add Title to Popup */
     let popupTitle = document.createElement('h3');
     popupTitle.innerText = data[location][0];
     popupDiv.appendChild(popupTitle);
 
+    /* Add Body Text to Popup */
     let popupBody = document.createElement('p'); 
     popupBody.innerText = data[location][1];
     popupDiv.appendChild(popupBody);
 
+    /* Get rid of / reinstate active popup*/
     if (activePopup != null) {
         activePopup.remove()
     }
-    activePopup = popupDiv
+    activePopup = popupDiv;
+
+    /* Add window resize listener so that popup boxes track position */
+    window.addEventListener("resize", () => {
+        const entryStyle = getComputedStyle(entry);
+        const y = entryStyle.top;
+        const x = entryStyle.left;
+
+        popupDiv.style.top = y;
+        popupDiv.style.left = x;
+    })
     
     entry.parentNode.parentNode.appendChild(popupDiv);
 }
