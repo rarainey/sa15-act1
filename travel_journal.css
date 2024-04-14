@@ -18,50 +18,54 @@ footer {
 }
 
 section {
-    background-image: url(map.jpg);
-    background-size: cover;
-    border: black solid 2px;
     margin-top: 10px;
     margin-bottom: 10px;
-    width: 1305px;
-    height: 845px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.map {
+    max-width: 100%;
+    height: auto;
+    border: black solid 2px;
 }
 
 .popup {
     background-color: rgb(255, 255, 255);
     border: black solid 2px;
     position: absolute;
-    width: 250px;
+    width: auto;
     padding-left: 10px;
 }
 
 .florida, .mississippi, .dc, .disney, .spacecenter {
-    width: 30px;
-    height: 50px;
+    margin: 0 auto;
+    max-width: 2%;
+    height: auto;
     position: absolute;
 }
 
 .florida {
-    top: 739px;
-    left: 976px;
+    top: 76%;
+    left: 74%
 }
 
 .mississippi {
-    top: 604px;
-    left: 832px;
+    top: 60%;
+    left: 63%;
 }
 
 .dc {
-    top: 444px;
-    left: 1127px;
+    top: 40%;
+    left: 88%;
 }
 
 .spacecenter {
-    top: 599px;
-    left: 910px;
+    top: 59%;
+    left: 69%;
 }
 
 .disney {
-    top: 767px;
-    left: 1059px; 
+    top: 80%;
+    left: 81%;
 }
